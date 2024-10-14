@@ -1,6 +1,6 @@
 """EX02 - Chardle - A cute step towards Wordle."""
 
-__author__: str = "73075404"
+__author__: str = "730750404"
 
 
 def input_word() -> str:
@@ -17,7 +17,7 @@ def input_word() -> str:
 
 def input_letter() -> str:
     """Asks user for their letter, and determines whether it is only one character."""
-    user_letter_guess = str(input("Enter a single letter: "))
+    user_letter_guess = str(input("Enter a single character: "))
     if len(user_letter_guess) != 1:
         print("Error: Character must be a single character.")
         exit()
@@ -53,8 +53,11 @@ def contains_char(word: str, letter: str) -> None:
         print("No instances of " + letter + " found in " + word)
     # used to have "if word[0] != letter and word[1] != letter and" etc.
     # but using the count function is much more effective and uses less space
-    else:
+    if count == 1:
+        print(str(count) + " instance of " + letter + " found in " + word)
+    if count > 1:
         print(str(count) + " instances of " + letter + " found in " + word)
+    # had to add another if statement for just if the count was equal to 1
 
 
 def main() -> None:
